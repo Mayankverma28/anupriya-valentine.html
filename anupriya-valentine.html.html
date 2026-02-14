@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anupriya ❤️</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =============================
+   GLOBAL STYLING
+============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* =============================
+   FLOATING HEARTS BACKGROUND
+============================= */
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: floatUp 10s infinite ease-in;
+    opacity: 0.6;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* =============================
+   MAIN CONTAINER
+============================= */
+
+.container {
+    z-index: 10;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px white;
+}
+
+.love-lines {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    min-height: 50px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.4s;
+}
+
+#yes {
+    background: white;
+    color: #ff4d6d;
+    font-weight: 600;
+}
+
+#yes:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background: #ff4d6d;
+    color: white;
+    position: absolute;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =============================
+   MEMORY SECTION
+============================= */
+
+.timeline {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* =============================
+   CONFETTI EFFECT
+============================= */
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    from { transform: translateY(-10vh); }
+    to { transform: translateY(110vh); }
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .love-lines { font-size: 1rem; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<script>
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+<div class="container">
+
+    <h1>Anupriya ❤️</h1>
+
+    <div class="love-lines" id="typing"></div>
+
+    <div class="timeline">
+        You are my calm in chaos. <br>
+        My smile in difficult days. <br>
+        My strength when I feel weak. <br>
+        My happiness when life feels heavy. <br>
+        My forever person. 💕
+    </div>
+
+    <div class="buttons">
+        <button id="yes" onclick="celebrate()">Yes, Always 💖</button>
+        <button id="no" onmouseover="moveButton()">No 🙈</button>
+    </div>
+
+</div>
+
+<!-- Romantic Background Music -->
+<audio autoplay loop>
+    <source src="your-music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* =============================
+   TYPING EFFECT
+============================= */
+
+const lines = [
+"Anupriya, you are my favorite notification.",
+"You are the best chapter of my life.",
+"I promise to support your dreams.",
+"I promise to protect your smile.",
+"I promise to stay even when things get hard.",
+"You are not just my love, you are my peace.",
+"With you, every ordinary day feels magical.",
+"You deserve the world, and I’ll try my best to give it."
+];
+
+let index = 0;
+let charIndex = 0;
+let currentLine = "";
+const typingDiv = document.getElementById("typing");
+
+function type() {
+    if (charIndex < lines[index].length) {
+        currentLine += lines[index][charIndex];
+        typingDiv.innerHTML = currentLine;
+        charIndex++;
+        setTimeout(type, 40);
+    } else {
+        setTimeout(() => {
+            currentLine = "";
+            charIndex = 0;
+            index = (index + 1) % lines.length;
+            type();
+        }, 2000);
+    }
+}
+
+type();
+
+/* =============================
+   NO BUTTON ESCAPE
+============================= */
+
+function moveButton() {
+    const button = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+/* =============================
+   CONFETTI CELEBRATION
+============================= */
+
+function celebrate() {
+
+    document.body.innerHTML = `
+        <h1 style="color:white; margin-top:40vh; text-shadow:0 0 20px white;">
+            She Said YES ❤️
+        </h1>
+        <p style="color:white;">Anupriya, you just made me the happiest person alive.</p>
+    `;
+
+    for (let i = 0; i < 100; i++) {
+        let conf = document.createElement("div");
+        conf.className = "confetti";
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.animationDuration = (1 + Math.random() * 2) + "s";
+        document.body.appendChild(conf);
+    }
+}
+
+</script>
+
+</body>
+</html>
